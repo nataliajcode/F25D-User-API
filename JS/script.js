@@ -4,6 +4,7 @@ async function fetchUsers() {
         const users = await response.json();
         console.log(users);
         displayUsers(users);
+        scrollToUsers();  
     } catch (error) {
         console.error('Fel vid hämtning av användare:', error);
     }
@@ -11,6 +12,7 @@ async function fetchUsers() {
 
 function displayUsers(users) {
     const container = document.getElementById('userContainer');
+    container.innerHTML = ''; 
     users.forEach(user => {
         const userCard = document.createElement('div');
         userCard.classList.add('user-card');
@@ -39,5 +41,15 @@ function showMoreInfo(button, userId) {
         button.textContent = "Visa mer";
     }
 }
+
+function scrollToUsers() {
+    const container = document.getElementById('userContainer');
+    if (container) {
+        const yOffset = -window.innerHeight / 4; 
+        const y = container.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+}
+
 
 fetchUsers();

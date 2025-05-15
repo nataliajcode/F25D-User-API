@@ -1,20 +1,28 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #1e1d1d;
+    color: #333;
+    margin: 0; 
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
-    color: #333;
+    margin: 20px; 
+    width: 100%;
 }
 
 h1 {
     color: #e6e6e6;
-    margin-bottom: 80px;
+    margin-bottom: 15px;
 }
 
 .user-container {
     display: grid;
+    padding-top: 5rem;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     width: 90%;
@@ -53,8 +61,147 @@ button:hover {
     border-radius: 5px;
 }
 
-@media (max-width: 600px) {
+header {
+    background-color: #222;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%; 
+    left: 0;
+    right: 0;
+    margin: 0; 
+}
+
+nav {
+    width: 100%; 
+    height: 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    justify-content: space-between; 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    margin-left: 30rem;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #eee;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 6px 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: #c0c0c0;
+    color: white;
+    border-radius: 4px;
+}
+
+footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    border-top: 1px solid #aca7a7;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0; 
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+footer a:hover,
+footer a:focus {
+text-decoration: underline;
+}
+
+.mobile-nav-title {
+display: none;
+}
+
+@media (max-width: 768px) {
+
+.main-content {
+width: 95%;
+margin: 20px auto;
+        align-items: center; 
+    }
+
+    h1 {
+        display: none;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+        align-items: center;
+        margin-left: 0; 
+    }
+
+    nav ul li {
+        margin: 10px 0; 
+    }
+
+    nav ul li a {
+        font-size: 1.0rem;
+    }
+
     .user-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; 
+        width: 100%;
+    }
+
+    button {
+        width: 40%;
+        font-size: 14px;
+    }
+
+    footer {
+        display: block;
+        text-align: center;
+        padding: 20px 10px;
+        font-size: 1rem;
+        background-color: #222;
+        color: #ccc;
+    }
+
+    .mobile-nav-title {
+    display: flex;             
+    justify-content: center;    
+    align-items: center;        
+    height: 5rem;             
+    color: #eee;
+    font-weight: 700;
+    font-size: 1.2rem;
+    width: 100%;                 
+    text-align: center;          
+}
+
+    nav ul {
+        display: none;
     }
 }
